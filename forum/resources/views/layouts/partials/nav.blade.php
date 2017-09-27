@@ -11,7 +11,7 @@
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="../navbar-static-top/">Log in</a></li>
+              <li><a href="{{route('login')}}">Log in</a></li>
               <li>{!! link_to_route('get_register', 'Register') !!}</li>
             </ul>
           </div><!--/.nav-collapse -->
