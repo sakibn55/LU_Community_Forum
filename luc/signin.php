@@ -1,12 +1,12 @@
 <?php
 //signin.php
-session_start();
+
 include 'connect.php';
 include 'header.php';
  
 echo '<h2>Sign in</h2>';
  
-//first, check if the user is already signed in. If that is the case, there is no need to display this page
+
 if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
 {
     echo 'You are already signed in, you can <a href="logout.php">sign out</a> if you want.';
@@ -15,8 +15,7 @@ else
 {
     if($_SERVER['REQUEST_METHOD'] != 'POST')
     {
-        /*the form hasn't been posted yet, display it
-          note that the action="" will cause the form to post to the same page it is on */
+        
         echo '<form class="form form-bordered" method="post" action="">
                 <div class="form-group">
                     <label>Username:</label> 
@@ -31,11 +30,7 @@ else
     }
     else
     {
-        /* so, the form has been posted, we'll process the data in three steps:
-            1.  Check the data
-            2.  Let the user refill the wrong fields (if necessary)
-            3.  Varify if the data is correct and return the correct response
-        */
+    
         $errors = array(); /* declare the array for later use */
          
         if(!isset($_POST['user_name']))

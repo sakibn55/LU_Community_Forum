@@ -1,6 +1,5 @@
 <?php
-//create_cat.php
-session_start(); 
+
 include 'connect.php';
 include 'header.php';
 
@@ -44,7 +43,9 @@ else
                 echo '<td class="leftpart">';
                 ?>
                 <h3>
-                    <a href="category.php?id=<?php echo $row['cat_id'] ?>"> <?php  echo $row['cat_name'] ?>
+                    <a href="category.php?id=<?php echo $row['cat_id'] ?>"> 
+
+                        <?php  echo $row['cat_name'] ?>
 
                     </a>
                 </h3> <?php echo $row['cat_description'];?>
@@ -52,7 +53,17 @@ else
                 <?php
                 echo '</td>';
                 echo '<td class="rightpart">';
-                            echo '<a href="topic.php?id=">Topic subject</a> at 10-10';
+                        
+                           ?>
+
+                           <a href="category.php?id=<?php echo $row['cat_id'] ?> ">
+
+                                    Topics On this catagory...
+
+                            </a>
+                        <?php
+
+
                 echo '</td>';
             echo '</tr>
             </tbody>';

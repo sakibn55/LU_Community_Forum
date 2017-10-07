@@ -1,3 +1,4 @@
+<?php require('connect.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +30,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Project name</a>
+              <a class="navbar-brand" href="index.php">LuComForum</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -38,6 +39,25 @@
                 <li><a href="create_cat.php">Create Catagories</a></li>
                 <li><a href="signin.php">Sign in</a></li>
                 <li><a href="signup.php">Create a account</a></li>
+              </ul>
+              <ul class="nav navbar-nav nabar-right">
+                <li class="active">
+                  <a href="#">Welcome 
+
+                  <?php 
+
+                    if (isset($_SESSION)){
+                     echo " " .$_SESSION['user_name']."";
+                    }
+                    else{
+                      
+                      echo " Guest";
+                    }
+                    
+                  ?> 
+                  </a>
+
+                </li>
               </ul>
             </div>
           </div>

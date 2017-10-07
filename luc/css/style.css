@@ -4,3 +4,16 @@ body {
 input[type=submit]{
     margin-top:10px;
 }
+.panel-title{
+    display: inline;
+}
+.mic-info {
+    color: #666666;
+    font-size: 11px;
+}
+.leftpart{
+    width: 60%;
+}
+.rightpart{
+    width: 20%;
+}

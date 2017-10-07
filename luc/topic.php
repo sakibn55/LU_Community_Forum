@@ -1,5 +1,4 @@
 <?php
-	session_start();
 
 include 'connect.php';
 include 'header.php';
@@ -63,21 +62,25 @@ $result = mysqli_query($conn, $sql);
            				 
                 			//prepare the table
                 			echo '<table  class="table table-hover">
-                     		 	<thead>
+                     		 	<thead >
                      		 		<tr>
                         				<th>Posts</th>
+                        				<th>Created By</th>
                         				<th>Created at</th>
                      			 	</tr>
                      			 </thead>'; 
-                     
+                     			echo'<tbody';
+					                    echo '<tr>';
+					                        echo '<td class="col-sm-8 leftpart">';
                 			while($row = mysqli_fetch_array($result))
                 				{               
-				                    echo'<tbody>';
-					                    echo '<tr>';
-					                        echo '<td class="leftpart">';
+				                    
 					                            echo '<h3><a href="topic.php?id=' . $row['post_topic'] . '">' . $row['post_content'] . '</a><h3>';
 					                        echo '</td>';
-					                        echo '<td class="rightpart">';
+					                        echo '<td class="col-sm-2 rightpart">';
+					                            echo $row['user_name'];
+					                        echo '</td>';
+					                        echo '<td class="col-sm-2 rightpart">';
 					                            echo date('d-m-Y', strtotime($row['post_date']));
 					                        echo '</td>';
 					                    echo '</tr>';
@@ -87,10 +90,6 @@ $result = mysqli_query($conn, $sql);
 										
 											
 								</table>
-								<form method="post" action="reply.php?id=<?php echo $row['post_id'] ?>">
-										<textarea  name="reply-content"></textarea>
-										<input type="submit" value="Submit reply" />
-								</form>	
 								<?php	
 									$sql1 = "SELECT 
 									 				reply_post, 
@@ -111,18 +110,60 @@ $result = mysqli_query($conn, $sql);
 								       	    echo 'The replies could not be displayed, please try again later.';
 									    }
 										else{
+												?>
+
+												<div class="panel panel-default widget">
+										            <div class="panel-heading">
+										                <span class="glyphicon glyphicon-comment"></span>
+										                <h3 class="panel-title">
+										                    Reply</h3>
+										            
+										            </div>
+													<div class="panel-body">
+										                <ul class="list-group">
+										                    <li class="list-group-item">
+										                        <div class="row">
+												<?php
 												while($row2=mysqli_fetch_array($result2))
 												{
 													
 														
+														?>
 
-															echo "<p>".$row2['reply_post']."</p>";
-														
-						
+													
+										                            <div class="col-xs-2 col-md-1">
+										                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
+										                            <div class="col-xs-10 col-md-11">
+										                                <div>
+										                                    <?php echo "<p>".$row2['reply_post']."</p>"; ?>
+										                                    <div class="mic-info">
+										                                        By: 
+										                                        <a href="#">
 
+										                                        	<?php echo $row2['reply_by']; ?>
+										                                        	
+										                                        </a> <?php echo "<p>".$row2['reply_date']."</p> <br>"; ?>
+										                                    </div>
+										                                </div>										          
+										                               									                       										    										      									                              
+										                            </div> 
+										                            <?php }
+										                            ?>
 
-
-												}
+										                        </div>
+										                    </li>
+													   </ul>  
+										            </div>
+										        </div>
+									
+												
+									<form class="form " method="post" action="reply.php?id=<?php echo $row['post_id'] ?>">
+										<div class="form-group">
+											<textarea class="form-control" id="comment"  name="reply-content" autofocus=""></textarea>
+											<input style="float: right;" type="submit" class="btn btn-success" value="Submit reply" />
+										</div>
+									</form>	
+									<?php
 			}		
                 				}
             	}
