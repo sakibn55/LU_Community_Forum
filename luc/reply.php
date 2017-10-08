@@ -21,7 +21,7 @@ else
         $sql = "INSERT INTO 
                     reply(reply_post,
                           reply_date,
-                          reply_topic,
+                          reply_topic_num,
                           reply_by) 
                 VALUES ('" . $_POST['reply-content'] . "',
                         NOW(),
@@ -31,14 +31,24 @@ else
                     )";
                          
         $result = mysqli_query($conn, $sql);
-                         
+
+        $r = $_GET['id'];
+
+
         if(!$result)
         {
             echo 'Your reply has not been saved, please try again later.';
         }
         else
-        {
-            echo 'Your reply has been saved, check out <a href="topic.php?id=' .($_GET['id']) . '">the topic</a>.';
+        {   
+            $sql2="select reply_topic_num
+            from 
+            reply;";
+            $result2 = mysqli_query($conn, $sql2);
+            $row = mysqli_fetch_array($result2);
+            
+                echo 'Your reply has been saved, check out <a href="topic.php?id=' .$r . '">the topic</a>.';
+            
         }
     }
 }

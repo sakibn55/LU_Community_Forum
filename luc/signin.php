@@ -26,7 +26,7 @@ else
                     <input class="form-control" type="password" name="user_pass">
                 </div>
                     <input class="btn btn-success" type="submit" value="Sign in" />
-         </form>';
+             </form>';
     }
     else
     {

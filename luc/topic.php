@@ -85,7 +85,7 @@ $result = mysqli_query($conn, $sql);
 					                        echo '</td>';
 					                    echo '</tr>';
 					                    echo'</tbody>';
-				                ?>
+				                	?>
 										
 										
 											
@@ -95,12 +95,12 @@ $result = mysqli_query($conn, $sql);
 									 				reply_post, 
 									 				reply_date, 
 									 				reply_by,
-									 				reply_topic 
+									 				reply_topic_num 
 									 			FROM 
 									 				reply 
 									 			WHERE 
 
-									 			reply_topic= ".$row['post_id'];
+									 			reply_topic_num= ".$row['post_id'];
 															
 													         
 									$result2 = mysqli_query($conn,$sql1);
@@ -135,7 +135,12 @@ $result = mysqli_query($conn, $sql);
 										                                <img src="http://placehold.it/80" class="img-circle img-responsive" alt="" /></div>
 										                            <div class="col-xs-10 col-md-11">
 										                                <div>
-										                                    <?php echo "<p>".$row2['reply_post']."</p>"; ?>
+										                                    <?php 
+										                                    	
+										                                    			
+										                                    	echo "<p>".$row2['reply_post']."</p>"; 
+										                                    			
+										                                    ?>
 										                                    <div class="mic-info">
 										                                        By: 
 										                                        <a href="#">
@@ -157,14 +162,14 @@ $result = mysqli_query($conn, $sql);
 										        </div>
 									
 												
-									<form class="form " method="post" action="reply.php?id=<?php echo $row['post_id'] ?>">
-										<div class="form-group">
-											<textarea class="form-control" id="comment"  name="reply-content" autofocus=""></textarea>
-											<input style="float: right;" type="submit" class="btn btn-success" value="Submit reply" />
-										</div>
-									</form>	
-									<?php
-			}		
+												<form class="form " method="post" action="reply.php?id=<?php echo $row['post_id'] ?>">
+													<div class="form-group" method="post">
+														<textarea class="form-control" id="comment"  name="reply-content" autofocus=""></textarea>
+														<input style="float: right;" type="submit" class="btn btn-success" value="Submit reply" />
+													</div>
+												</form>	
+												<?php
+											}		
                 				}
             	}
         	
