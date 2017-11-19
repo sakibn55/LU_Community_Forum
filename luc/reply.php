@@ -1,6 +1,6 @@
 <?php
-include 'connect.php';
-include 'header.php';
+include 'admin/connect.php';
+include 'rsc/header.php';
  
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
@@ -32,7 +32,7 @@ else
                          
         $result = mysqli_query($conn, $sql);
 
-        $r = $_GET['id'];
+        $r = $_SESSION['topic_id'];
 
 
         if(!$result)
@@ -41,9 +41,10 @@ else
         }
         else
         {   
-            $sql2="select reply_topic_num
-            from 
-            reply;";
+            $sql2="select 
+                            reply_topic_num
+                            from 
+                            reply;";
             $result2 = mysqli_query($conn, $sql2);
             $row = mysqli_fetch_array($result2);
             
@@ -53,5 +54,5 @@ else
     }
 }
  
-include 'footer.php';
+include 'rsc/footer.php';
 ?>

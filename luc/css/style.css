@@ -1,15 +1,21 @@
-body {
-    background-color: #fff;
+body{
+	height: 100%;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
+    background-size:100% 100%;
  }
-input[type=submit]{
-    margin-top:10px;
-}
+ a{
+ 	color: #dfebf5;
+ }
 .panel-title{
     display: inline;
 }
 .mic-info {
     color: #666666;
     font-size: 11px;
+}
+.table-hover>tbody>tr:hover{
+	background-color: rgba(85, 115, 103, 0);
 }
 .leftpart{
     width: 60%;

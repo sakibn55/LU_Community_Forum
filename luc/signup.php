@@ -1,34 +1,73 @@
 <?php
 //signup.php
-include 'connect.php';
-include 'header.php';
- 
-echo '<h2>Sign up</h2>';
+include 'admin/connect.php';
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Lu community forum</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+ <body>
+ <?php
  
 if($_SERVER['REQUEST_METHOD'] != 'POST')
 {
     /*the form hasn't been posted yet, display it
       note that the action="" will cause the form to post to the same page it is on */
-    echo '  <form class="form form-bordered" method="post" action="">
-                <div class="form-group">
-                    <label for="name">Username:</label> 
-                    <input class="form-control" type="text" name="user_name" />
-                </div>
-                <div class="form-group">
+    echo '  
+    <div class="container">
+        
+        <div class="row">
+             <div class="col-sm-12">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <h2>Sign up</h2>
+                    <form class="form form-horizontal" method="post" action="">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="name">Username:</label> 
+                            <div class="col-sm-10">
+                                <input class="col-sm-10 form-control " type="text" name="user_name" />
+                            </div>
+                        </div>
+                        <div class="form-group">
 
-                    <label>Password: </label>
-                    <input class="form-control" type="password" name="user_pass">
+                            <label class="control-label col-sm-2" for="pwd" id="pwd"> Password: </label>
+                            <div class="col-sm-10">
+                                <input class="form-control " type="password" name="user_pass">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" id="pwd" for="pwd" >Password again:</label>
+                            <div class="col-sm-10">
+                                <input class="form-control" type="password" name="user_pass_check">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label col-sm-2 ">E-mail:</label>
+                            <div class="col-sm-10"> 
+                                <input class="form-control" id="email" type="email" name="user_email">
+                            </div>
+                        </div>
+                        <div class="form-group">        
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <input class="btn btn-success" type="submit" value="Register" />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>Password again:</label> 
-                    <input class="form-control" type="password" name="user_pass_check">
-                </div>
-                <div class="form-group">
-                    <label>E-mail:</label> 
-                    <input class="form-control" type="email" name="user_email">
-                </div>
-                <input class="btn btn-success" type="submit" value="Register" />
-            </form>';
+            </div>
+        
+        ';
 }
 else
 {
@@ -106,5 +145,5 @@ else
     }
 }
  
-include 'footer.php';
+include 'rsc/footer.php';
 ?>

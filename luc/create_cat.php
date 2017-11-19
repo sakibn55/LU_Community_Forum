@@ -1,10 +1,11 @@
 <?php
 
 //create_cat.php
-include 'connect.php';
-include('header.php'); 
+include 'admin/connect.php';
+include('rsc/header2.php'); 
 if($_SERVER['REQUEST_METHOD'] != 'POST')
-{
+{   
+
     echo '<form class="form-horizontal form form-border" method="post" action="">';
 
     ?>
@@ -14,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST')
         </div>
         <div class="form-group">
             <label for="comment">Category description: </label>
-            <textarea class="form-control" id="comment" rows="3" name="cat_description" /></textarea>
+            <textarea class="form-control" id="comment" rows="3" name="cat_description"></textarea>
             <input type="submit" class="btn btn-success" value="Add category" />
         </div>
      </form>
@@ -41,6 +42,6 @@ else
         echo 'New category successfully added.';
     }
 }
- 
-include('footer.php');
+
+include('rsc/footer.php');
 ?>

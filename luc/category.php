@@ -1,7 +1,7 @@
 <?php
 
-include 'connect.php';
-include 'header.php';
+include 'admin/connect.php';
+include 'rsc/header2.php';
  
 //first select the category based on $_GET['cat_id']
 $sql = "SELECT
@@ -87,5 +87,5 @@ else
     }
 }
  
-include 'footer.php';
+include 'rsc/footer.php';
 ?>

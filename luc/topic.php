@@ -1,7 +1,7 @@
 <?php
 
-include 'connect.php';
-include 'header.php';
+include 'admin/connect.php';
+include 'rsc/header.php';
  
 //first select the category based on $_GET['cat_id']
 $sql = "SELECT
@@ -15,7 +15,7 @@ $sql = "SELECT
             ;
  
 $result = mysqli_query($conn, $sql);
- 
+$_SESSION['topic_id']    = $_GET['id'];
 	if(!$result)
 		{
    	 		echo 'The Topic could not be displayed, please try again later.';
@@ -142,10 +142,32 @@ $result = mysqli_query($conn, $sql);
 										                                    			
 										                                    ?>
 										                                    <div class="mic-info">
-										                                        By: 
-										                                        <a href="#">
+										                                        By:
 
-										                                        	<?php echo $row2['reply_by']; ?>
+										                                        <?php 
+										                                        		$replied_user_id = $row2['reply_by'];
+																						$sql3 = "SELECT
+																						    user_name
+																						FROM
+																		    				users
+																						JOIN
+																		    				reply
+																				
+																						WHERE
+																		    				users.user_id = ".$replied_user_id;
+																		         
+																		        		$result3 = mysqli_query($conn,$sql3);
+																		         
+																		        		if(!$result3)
+																		        		{
+																		            		echo 'The topics could not be displayed, please try again later.';
+																		        		}
+
+																		        		$row3=mysqli_fetch_array($result3);
+										                                        ?> 
+										                                        <a href="#" style="color:black;">
+
+										                                        	<?php echo $row3['user_name']; ?>
 										                                        	
 										                                        </a> <?php echo "<p>".$row2['reply_date']."</p> <br>"; ?>
 										                                    </div>
@@ -176,40 +198,7 @@ $result = mysqli_query($conn, $sql);
        
     	
 	}
- 
-	 $sql1 = "SELECT 
-	 				reply_post, 
-	 				reply_date, 
-	 				reply_by,
-	 				reply_topic 
-	 			FROM 
-	 				reply 
-	 			WHERE 
-
-	 			reply_topic= ". $_GET['id'];
-							
-					         
-	$result2 = mysqli_query($conn,$sql1);
-			    
-    if(!$result2)
-        {
-       	    echo 'The replies could not be displayed, please try again later.';
-	    }
-		else{
-				while($row2=mysqli_fetch_array($result2))
-				{
-					
-						
-
-							echo "<p>".$row2['reply_post']."</p>";
-						
-						
 
 
-
-				}
-			}
-
-
-include 'footer.php';
+include 'rsc/footer.php';
 ?>

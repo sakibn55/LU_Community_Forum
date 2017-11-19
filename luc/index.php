@@ -1,7 +1,6 @@
 <?php
-
-include 'connect.php';
-include 'header.php';
+include 'admin/connect.php';
+include 'rsc/header.php';
 
 $sql = "SELECT
             cat_id,
@@ -70,5 +69,5 @@ else
         }
     }
 }
-include 'footer.php';
+include 'rsc/footer.php';
 ?>

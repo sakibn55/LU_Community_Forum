@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 05, 2017 at 12:46 AM
+-- Generation Time: Nov 19, 2017 at 06:46 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -39,10 +39,15 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_description`) VALUES
-(2, 'C', 'C tutorial'),
-(3, 'nazmus', 'creatror'),
-(4, 'test', 'this is a testing cat'),
-(9, 'new test catagry', 'this text cata desc');
+(11, 'C-tutorial', 'Here we learn basics of c.'),
+(12, 'Java Tutorial', 'Here we learn about java.'),
+(13, 'Python Tutorial', 'Here we learn python'),
+(14, 'Php Tutorial', 'Here we learn php.'),
+(15, 'laravel', 'this is laravel'),
+(16, 'Laravel 5.5', 'latest'),
+(17, 'Java a', 'Java new'),
+(18, 'sx', 'sax'),
+(19, 'csc', 'sada');
 
 -- --------------------------------------------------------
 
@@ -52,7 +57,7 @@ INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_description`) VALUES
 
 CREATE TABLE `posts` (
   `post_id` int(8) NOT NULL,
-  `post_content` text NOT NULL,
+  `post_content` varchar(2500) NOT NULL,
   `post_date` datetime NOT NULL,
   `post_topic` int(8) NOT NULL,
   `post_by` int(8) NOT NULL,
@@ -67,12 +72,11 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `post_content`, `post_date`, `post_topic`, `post_by`, `post_reply`, `post_reply_date`, `post_reply_by`, `reply_topic`) VALUES
-(1, 'dc', '2017-10-04 00:35:18', 7, 1, '', '2017-10-04 20:15:25', 0, 0),
-(2, 'sdfa', '2017-10-04 00:41:37', 8, 1, '', '2017-10-04 20:15:25', 0, 0),
-(3, 'dcsfdfbfnmtjdt', '2017-10-04 01:39:15', 9, 1, '', '2017-10-04 20:15:25', 0, 0),
-(4, 'xcfsdv c', '2017-10-04 02:00:43', 10, 1, '', '2017-10-04 20:15:25', 0, 0),
-(5, 'Hey there this is test message', '2017-10-04 02:29:48', 11, 1, '', '2017-10-04 20:15:25', 0, 0),
-(8, 'Hah ha', '2017-10-05 01:31:45', 12, 1, '', '2017-10-04 20:15:25', 0, 0);
+(11, 'C is a powerful system programming language, and C++ is an excellent general purpose programming language with modern bells and whistles.', '2017-10-08 22:21:34', 15, 2, '', '2017-10-08 16:21:34', 0, 0),
+(12, 'Java is at the heart of our digital lifestyle. ', '2017-10-08 22:33:32', 19, 1, '', '2017-10-08 16:33:32', 0, 0),
+(13, 'Python is a programming language.', '2017-10-09 12:15:15', 20, 1, '', '2017-10-09 06:15:15', 0, 0),
+(14, 'Php is a programming language.', '2017-10-09 12:18:23', 21, 4, '', '2017-10-09 06:18:23', 0, 0),
+(15, 'jiikh', '2017-11-18 03:46:01', 22, 5, '', '2017-11-17 21:46:01', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -94,12 +98,17 @@ CREATE TABLE `reply` (
 --
 
 INSERT INTO `reply` (`id`, `reply_post`, `reply_date`, `reply_by`, `reply_topic`, `reply_topic_num`) VALUES
-(6, 'topic id 11 reply', '2017-10-04 18:11:39', '1', '5', 0),
-(7, 'topic id 10', '2017-10-04 18:37:19', '1', '4', 0),
-(8, 'hahah', '2017-10-04 21:01:30', '1', '4', 0),
-(9, '', '2017-10-04 21:03:56', '1', '5', 0),
-(10, 'reply no 7', '2017-10-04 21:46:12', '1', '1', 0),
-(11, 'nul reply 8', '2017-10-04 22:27:00', '1', '2', 0);
+(42, 'Thank You :D', '2017-10-08 16:22:42', '1', '', 11),
+(43, 'Thanks a lot', '2017-10-08 16:25:21', '1', '', 11),
+(44, 'Thank you.', '2017-10-09 06:15:37', '1', '', 13),
+(45, 'hah a\r\n', '2017-11-17 17:01:03', '5', '', 11),
+(46, 'lol', '2017-11-17 17:20:07', '5', '', 13),
+(47, 'lol', '2017-11-17 17:20:17', '5', '', 14),
+(48, 'dhur', '2017-11-17 17:20:38', '5', '', 12),
+(49, 'damn', '2017-11-17 17:21:02', '5', '', 11),
+(50, 'hurreey', '2017-11-17 17:26:18', '6', '', 11),
+(51, 'haha', '2017-11-17 17:34:02', '6', '', 11),
+(52, 'what is this', '2017-11-17 17:34:14', '6', '', 12);
 
 -- --------------------------------------------------------
 
@@ -120,13 +129,11 @@ CREATE TABLE `topics` (
 --
 
 INSERT INTO `topics` (`topic_id`, `topic_subject`, `topic_date`, `topic_cat`, `topic_by`) VALUES
-(1, 'java', '2017-10-03 00:00:00', 2, 1),
-(7, 'pyramid', '2017-10-04 00:35:17', 2, 1),
-(8, 'nul', '2017-10-04 00:41:37', 2, 1),
-(9, 'hlw', '2017-10-04 01:39:15', 2, 1),
-(10, 'vsc', '2017-10-04 02:00:43', 3, 1),
-(11, 'this text topic', '2017-10-04 02:29:48', 4, 1),
-(12, 'new topic test', '2017-10-05 01:31:45', 9, 1);
+(15, 'Learn C and C++', '2017-10-08 22:21:34', 11, 2),
+(19, 'What is java', '2017-10-08 22:33:32', 12, 1),
+(20, 'What is python', '2017-10-09 12:15:15', 13, 1),
+(21, 'learn php', '2017-10-09 12:18:23', 14, 4),
+(22, 'hummm', '2017-11-18 03:46:01', 18, 5);
 
 -- --------------------------------------------------------
 
@@ -148,8 +155,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_pass`, `user_email`, `user_date`, `user_level`) VALUES
-(1, 'sakib', '0ce8446045495d97fee36a5d178a3c8ce68e758d', 'sakib@gmail.com', '2017-10-03 17:50:28', 0),
-(2, 'nazmus', '0ce8446045495d97fee36a5d178a3c8ce68e758d', '', '2017-10-04 02:36:38', 0);
+(1, 'sakib', '239168cef134f3b11aab0cf6374616d7', 'sakib@gmail.com', '2017-10-03 17:50:28', 0),
+(2, 'nazmus', '21232f297a57a5a743894a0e4a801fc3', '', '2017-10-04 02:36:38', 0),
+(3, 'Tipu', 'da39a3ee5e6b4b0d3255bfef95601890afd80709', 'tipu@gmail.com', '2017-10-09 12:14:10', 0),
+(4, 'shadip', 'ff18bfe78c0b46dca6dac4e6a5f4e2b00a0fd18f', 'shadip@gmail.com', '2017-10-09 12:17:04', 0),
+(5, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@gmail.com', '2017-11-17 22:59:38', 0),
+(6, 'admin2', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin2@gmail.com', '2017-11-17 23:26:02', 0);
 
 --
 -- Indexes for dumped tables
@@ -174,7 +185,8 @@ ALTER TABLE `posts`
 -- Indexes for table `reply`
 --
 ALTER TABLE `reply`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `reply_topic_num` (`reply_topic_num`);
 
 --
 -- Indexes for table `topics`
@@ -199,27 +211,27 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `cat_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `post_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `reply`
 --
 ALTER TABLE `reply`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `topics`
 --
 ALTER TABLE `topics`
-  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `topic_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Constraints for dumped tables
 --
@@ -230,6 +242,12 @@ ALTER TABLE `users`
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`post_topic`) REFERENCES `topics` (`topic_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `posts_ibfk_2` FOREIGN KEY (`post_by`) REFERENCES `users` (`user_id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `reply`
+--
+ALTER TABLE `reply`
+  ADD CONSTRAINT `reply_ibfk_1` FOREIGN KEY (`reply_topic_num`) REFERENCES `posts` (`post_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `topics`

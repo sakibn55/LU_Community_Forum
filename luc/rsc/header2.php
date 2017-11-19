@@ -12,10 +12,8 @@
     <title>Lu community forum</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
   </head>
 
   <body>
@@ -37,8 +35,7 @@
                 <li class="active"><a href="index.php">Home</a></li>
                 <li><a href="create_topic.php">Create Topic</a></li>
                 <li><a href="create_cat.php">Create Catagories</a></li>
-                <li><a href="signin.php">Sign in</a></li>
-                <li><a href="signup.php">Create a account</a></li>
+                <li><a href="admin/signin.php">Sign in</a></li>
               </ul>
               <ul class="nav navbar-nav nabar-right">
                 <li class="active">

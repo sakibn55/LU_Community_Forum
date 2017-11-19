@@ -1,8 +1,8 @@
 <?php
 //create_cat.php
 
-include 'connect.php';
-include('header.php'); 
+include 'admin/connect.php';
+include('rsc/header.php'); 
 echo '<h2>Create a topic</h2>';
 if($_SESSION['signed_in'] == false)
 {
@@ -198,5 +198,5 @@ else
         }
     }
 }
-include('footer.php');
+include('rsc/footer.php');
 ?>
