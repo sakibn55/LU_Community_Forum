@@ -7,6 +7,9 @@ body{
  a{
  	color: #dfebf5;
  }
+ a:hover{
+    text-decoration: none;
+ }
 .panel-title{
     display: inline;
 }

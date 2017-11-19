@@ -31,7 +31,7 @@ if(isset($_SESSION['signed_in']) && $_SESSION['signed_in'] == true)
                             <div class="col-sm-6 col-sm-offset-3">
                                 <div class="jumbotron">
                                     <p>You are allready signed in If you want to <a href="logout.php">Logout</a> you can !! </p>
-                                    <button><a href="../index.php">Home</a></button> 
+                                    <a href="../index.php">Home</a>
                                 </div>   
                             </div>
                         </div>  

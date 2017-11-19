@@ -186,7 +186,7 @@ $_SESSION['topic_id']    = $_GET['id'];
 												
 												<form class="form " method="post" action="reply.php?id=<?php echo $row['post_id'] ?>">
 													<div class="form-group" method="post">
-														<textarea class="form-control" id="comment"  name="reply-content" autofocus=""></textarea>
+														<textarea class="form-control" id="comment"  name="reply-content"></textarea>
 														<input style="float: right;" type="submit" class="btn btn-success" value="Submit reply" />
 													</div>
 												</form>	
